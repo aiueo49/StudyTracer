@@ -1,7 +1,8 @@
+require "dotenv/load"
 require "discordrb"
 
 # Create a bot with a token
-bot = Discordrb::Bot.new token: ENV["DISCORD_BOT_TOKEN"], client_id: ENV["DISCORD_CLIENT_ID"]
+bot = Discordrb::Bot.new token: ENV['DISCORD_BOT_TOKEN'], client_id: ENV['DISCORD_CLIENT_ID']
 
 # Respond to "Ping!" with "Pong!"
 bot.message(with_text: "Ping!") do |event|
@@ -10,4 +11,3 @@ end
 
 # bot start
 bot.run
-
