@@ -31,13 +31,21 @@ function Home() {
             onClick={hideModal}
           >
             <div
-              className="bg-white p-4 rounded"
+              className="bg-white p-4 rounded w-3/4 h-3/4 overflow-y-auto"
               onClick={(e) => e.stopPropagation()}  
             >
-              <h2 className="text-2xl">StudyTracerとは</h2>
-              <p>
-                StudyTracerはDiscordのボイスチャンネルに接続しているユーザーの学習時間を自動で記録するDiscordbotです。
-              </p>
+              <h1 className="text-2xl text-left">
+                1. botをサーバーに招待しよう
+              </h1>
+              <h1 className="text-2xl text-left">
+                2. 学習を開始しよう
+              </h1>
+              <h1 className="text-2xl text-left">
+                3. 学習を終了しよう
+              </h1>
+              <h1 className="text-2xl text-left">
+                4. 学習時間を確認しよう
+              </h1>
               <button
                 className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700"
                 onClick={hideModal}
