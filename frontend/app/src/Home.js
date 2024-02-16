@@ -48,12 +48,20 @@ function Home() {
                   4. 学習時間を確認しよう
                 </h1>
               </div>
-              <button
-                className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700"
-                onClick={hideModal}
-              >
-                閉じる
-              </button>
+              <div className="flex flex-col space-y-1">
+                <button
+                  className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700"
+                  onClick={hideModal}
+                >
+                  次へ
+                </button>
+                <button
+                  className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700"
+                  onClick={hideModal}
+                >
+                  閉じる
+                </button>
+              </div>
             </div>
           </div>
         )}
