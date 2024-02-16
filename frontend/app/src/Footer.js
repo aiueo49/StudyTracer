@@ -15,7 +15,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="text-center bg-discordPurple p-4 text-white">
+    <footer className="text-center bg-discordPurple p-4">
       <nav>
         <ul className="flex justify-center space-x-4">
           <li><button onClick={() => handleOpenModal('利用規約', 'ここに利用規約を記載します')} className="text-white">利用規約</button></li>
@@ -27,7 +27,7 @@ const Footer = () => {
         <h2>{modalContent.title}</h2>
         <p>{modalContent.body}</p>
       </Modal>
-      <p className="mt-12">© 2024 StudyTracer</p>
+      <p className="mt-12 text-white">© 2024 StudyTracer</p>
     </footer>
   );
 };
