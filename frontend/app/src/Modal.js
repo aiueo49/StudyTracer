@@ -21,7 +21,7 @@ const Modal = ({ isOpen, onClose, children }) => {
         </div>
         <div className="mt-4">
           <button
-            className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700"
+            className="w-full px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700"
             onClick={onClose}>
               閉じる
           </button>
