@@ -4,8 +4,12 @@ module.exports = {
     "./src/**/*.{js,jsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        discordPurple: '#7289DA',
+      }
+    },
   },
+  variants: {},
   plugins: [],
 }
-
