@@ -1,5 +1,6 @@
 require "dotenv/load"
 require "discordrb"
+require "./config/environment.rb"
 
 # Create a bot with a token
 bot = Discordrb::Bot.new token: ENV['DISCORD_BOT_TOKEN'], client_id: ENV['DISCORD_CLIENT_ID']
@@ -31,6 +32,16 @@ bot.voice_state_update do |event|
   # ユーザーが以前にいたチャンネル（event.old_channel）が存在し、ユーザーが現在いるチャンネル（event.channel）が存在しない場合にtrueになります。これは、ユーザーがボイスチャンネルから退出したときに該当します。
   if event.old_channel && event.old_channel
     event.user.pm(exit_messages.sample % {name: event.user.name})
+  end
+end
+
+# ユーザーが入室した時にユーザーネームとユーザーアイコンと入室時刻(タイムスタンプ)を取得し、データベースに保存する
+bot.voice_state_update do |event|
+  if event.channel
+    User.create(
+      name: event.user.name,
+      avatar_url: event.user.avatar_url,
+    )
   end
 end
 
