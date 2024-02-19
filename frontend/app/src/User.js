@@ -6,7 +6,7 @@ function User() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch(`/users/${userID}`)
+    fetch(`http://localhost:3001/users/${userID}`)
       .then(response => response.json())
       .then(data => setUser(data));
   }, [userID]);
@@ -18,7 +18,7 @@ function User() {
   return (
     <div>
       <h1>{user.name}</h1>
-      <img src={user.avatar} alt={user.name} />
+      <img src={user.avatar_url} alt={user.name} />
     </div>
   );
 }
