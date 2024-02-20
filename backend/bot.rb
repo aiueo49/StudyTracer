@@ -60,5 +60,14 @@ bot.voice_state_update do |event|
   end
 end
 
+# ユーザーが退室した時にStudyTimeテーブルのレコードを更新する
+bot.voice_state_update do |event|
+  if event.channel.nil?
+    user = User.find_by(name: event.user.name)
+    study_time = StudyTime.find_by(user_id: user.id, end_time: nil)
+    study_time.update(end_time: Time.now)
+  end
+end
+
 # bot start
 bot.run
