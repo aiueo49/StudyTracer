@@ -10,6 +10,10 @@ class StudyTimesController < ApplicationController
       end
     end
 
-    render json: { study_time: total_study_time }
+    # 小数点以下を切り捨てて、時間と分に分ける
+    hours = total_study_time.floor
+    minutes = ((total_study_time - hours) * 60).round
+
+    render json: { study_time: "#{hours}時間#{minutes}分" }
   end
 end

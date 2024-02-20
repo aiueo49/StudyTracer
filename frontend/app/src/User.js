@@ -25,7 +25,7 @@ function User() {
     <div>
       <h1>{user.name}</h1>
       <img src={user.avatar_url} alt={user.name} />
-      <p>Total Study Time: {studyTime} hours</p>
+      <p>合計学習時間: {studyTime} </p>
     </div>
   );
 }
