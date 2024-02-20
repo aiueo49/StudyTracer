@@ -49,5 +49,16 @@ bot.voice_state_update do |event|
   end
 end
 
+# ユーザーが入室した時にStudyTimeテーブルに新しいレコードを作成する
+bot.voice_state_update do |event|
+  if event.channel
+    user = User.find_by(name: event.user.name)
+    StudyTime.create(
+      user_id: user.id,
+      start_time: Time.now,
+    )
+  end
+end
+
 # bot start
 bot.run
