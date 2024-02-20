@@ -1,0 +1,3 @@
+class StudyTime < ActiveRecord::Base
+  # ...
+end
