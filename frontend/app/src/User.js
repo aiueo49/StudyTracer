@@ -14,7 +14,7 @@ function User() {
     // 学習時間を取得
     fetch(`http://localhost:3001/study_times/${userID}`)
       .then(response => response.json())
-      .then(data => setStudyTime(data.study_time));
+      .then(data => setStudyTime(data));
   }, [userID]);
 
   if (!user || studyTime === null) {
@@ -25,7 +25,10 @@ function User() {
     <div>
       <h1>{user.name}</h1>
       <img src={user.avatar_url} alt={user.name} />
-      <p>合計学習時間: {studyTime} </p>
+      <p>今までの合計学習時間: {studyTime.total_study_time} </p>
+      <p>今日の合計学習時間: {studyTime.today_study_time}</p>
+      <p>今週の合計学習時間: {studyTime.this_week_study_time}</p>
+      <p>先週の合計学習時間: {studyTime.last_week_study_time}</p>
     </div>
   );
 }
