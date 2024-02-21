@@ -28,6 +28,7 @@ function User() {
       <p>今までの合計学習時間: {studyTime.total_study_time} </p>
       <p>今日の合計学習時間: {studyTime.today_study_time}</p>
       <p>今週の合計学習時間: {studyTime.this_week_study_time}</p>
+      <p>先週の合計学習時間: {studyTime.last_week_study_time}</p>
     </div>
   );
 }

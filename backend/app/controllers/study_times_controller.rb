@@ -32,7 +32,11 @@ class StudyTimesController < ApplicationController
     this_week_study_times = StudyTime.where(user_id: params[:id], start_time: Time.zone.now.beginning_of_week..Time.zone.now.end_of_week)
     this_week_study_time = calculate_study_time(this_week_study_times)
 
-    render json: { total_study_time: total_study_time, today_study_time: today_study_time, this_week_study_time: this_week_study_time }
+    # 先週の合計学習時間を取得する
+    last_week_study_times = StudyTime.where(user_id: params[:id], start_time: Time.zone.now.prev_week.beginning_of_week..Time.zone.now.prev_week.end_of_week)
+    last_week_study_time = calculate_study_time(last_week_study_times)
+
+    render json: { total_study_time: total_study_time, today_study_time: today_study_time, this_week_study_time: this_week_study_time, last_week_study_time: last_week_study_time }
   end
 
   private
