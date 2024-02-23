@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Calendar from './Calendar';
 
 function User() {
   const { userID } = useParams();
@@ -22,14 +23,17 @@ function User() {
   }
 
   return (
-    <div>
-      <h1>{user.name}</h1>
-      <img src={user.avatar_url} alt={user.name} />
-      <p>今までの合計学習時間: {studyTime.total_study_time} </p>
-      <p>今日の合計学習時間: {studyTime.today_study_time}</p>
-      <p>今週の合計学習時間: {studyTime.this_week_study_time}</p>
-      <p>先週の合計学習時間: {studyTime.last_week_study_time}</p>
-    </div>
+    <>
+      <div>
+        <h1>{user.name}</h1>
+        <img src={user.avatar_url} alt={user.name} />
+        <p>今までの合計学習時間: {studyTime.total_study_time} </p>
+        <p>今日の合計学習時間: {studyTime.today_study_time}</p>
+        <p>今週の合計学習時間: {studyTime.this_week_study_time}</p>
+        <p>先週の合計学習時間: {studyTime.last_week_study_time}</p>
+      </div>
+      <Calendar />
+    </>
   );
 }
 
