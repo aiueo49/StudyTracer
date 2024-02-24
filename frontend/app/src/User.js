@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 // import Calendar from './Calendar';
-import  MyCalendar from './DatePicker';
+import  MyCalendar from './MyCalendar';
 
 function User() {
+  // 今日の日付を取得
+  const today = new Date();
+  const dateString = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+
+  // 今日の曜日を取得
+  const week = ["日", "月", "火", "水", "木", "金", "土"];
+  const dayOfWeek = week[today.getDay()];
+
   const { userID } = useParams();
   const [user, setUser] = useState(null);
   const [studyTime, setStudyTime] = useState(null);
@@ -26,6 +34,7 @@ function User() {
   return (
     <>
       <div>
+        <h1>今日の日付: {dateString} ({dayOfWeek})</h1>
         <h1>{user.name}</h1>
         <img src={user.avatar_url} alt={user.name} />
         <p>今までの合計学習時間: {studyTime.total_study_time} </p>
