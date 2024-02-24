@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-// import Calendar from './Calendar';
 import  MyCalendar from './MyCalendar';
 
 function User() {
@@ -42,7 +41,6 @@ function User() {
         <p>今週の合計学習時間: {studyTime.this_week_study_time}</p>
         <p>先週の合計学習時間: {studyTime.last_week_study_time}</p>
       </div>
-      {/* <Calendar /> */}
       <MyCalendar studyTime={studyTime} />
     </>
   );
