@@ -11,9 +11,20 @@ function User() {
   const week = ["日", "月", "火", "水", "木", "金", "土"];
   const dayOfWeek = week[today.getDay()];
 
+  // 選択された日付を管理するstateを作成
+  const [selectedDate, setSelectedDate] = useState(dateString);
+
   // カレンダーの日付をクリックしたときの処理
+  // 普通に書いたら何故か日付がずれるので1日後の日付を取得する
   const handleDateClick = (date) => {
-    console.log(date);
+    const selectedDate = new Date(date);
+    selectedDate.setDate(selectedDate.getDate() + 1); // 1日後の日付を取得
+
+    const year = selectedDate.getFullYear();
+    const month = ('0' + (selectedDate.getMonth() + 1)).slice(-2); // 月を2桁に揃える
+    const day = ('0' + selectedDate.getDate()).slice(-2); // 日を2桁に揃える
+
+    setSelectedDate(`${year}-${month}-${day}`); // 1日後の日付をstateに保存
   };
 
   const { userID } = useParams();
@@ -48,7 +59,7 @@ function User() {
           <MyCalendar onDateClick={handleDateClick} />
         </div>
         <div className='flex-1 border-l-2 border-dashed border-gray-400'>
-          <h1>{dateString} ({dayOfWeek})</h1>
+          <h1>{selectedDate} ({dayOfWeek})</h1>
           <p>学習時間: {studyTime.today_study_time}</p>
           <p>学習内容: </p>
           <p>感想:</p>

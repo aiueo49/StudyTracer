@@ -11,7 +11,7 @@ function MyCalendar({ onDateClick }) {
   const handleDayClick = (newValue) => {
     setValue(newValue);
     const dateString = newValue.toISOString().split("T")[0]; // YYYY-MM-DD
-    navigate(`/study_times/${dateString}`);
+    // navigate(`/study_times/${dateString}`);
     onDateClick(dateString);
   };
 
