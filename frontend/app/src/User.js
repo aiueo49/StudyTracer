@@ -44,6 +44,9 @@ function User() {
         </div>
         <div className='flex-1 border-l-2 border-dashed border-gray-400'>
           <h1>{dateString} ({dayOfWeek})</h1>
+          <p>学習時間: {studyTime.today_study_time}</p>
+          <p>学習内容: </p>
+          <p>感想:</p>
         </div>
       </div>
     </>
