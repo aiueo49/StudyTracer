@@ -6,7 +6,11 @@ import { set } from 'date-fns';
 function User() {
   // 今日の日付を取得
   const today = new Date();
-  const dateString = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+
+  // 月が一桁の場合、月を二桁に揃える
+  const month = ('0' + (today.getMonth() + 1)).slice(-2);
+
+  const dateString = `${today.getFullYear()}-${month}-${today.getDate()}`;
 
   // 今日の曜日を取得
   const week = ["日", "月", "火", "水", "木", "金", "土"];
