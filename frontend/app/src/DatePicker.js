@@ -20,7 +20,9 @@ function MyCalendar() {
         displayStaticWrapperAs="desktop"
         value={value}
         onChange={handleDayClick}
-        renderInput={(params) => <TextField {...params} />}
+        components={{
+          textField: TextField
+        }}
       />
     </LocalizationProvider>
   );

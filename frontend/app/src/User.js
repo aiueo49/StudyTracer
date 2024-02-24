@@ -34,7 +34,7 @@ function User() {
         <p>先週の合計学習時間: {studyTime.last_week_study_time}</p>
       </div>
       {/* <Calendar /> */}
-      <MyCalendar />
+      <MyCalendar studyTime={studyTime} />
     </>
   );
 }
