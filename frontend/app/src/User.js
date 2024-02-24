@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import  MyCalendar from './MyCalendar';
+import { set } from 'date-fns';
 
 function User() {
   // 今日の日付を取得
@@ -9,10 +10,12 @@ function User() {
 
   // 今日の曜日を取得
   const week = ["日", "月", "火", "水", "木", "金", "土"];
-  const dayOfWeek = week[today.getDay()];
+  const dayOfWeekString = week[today.getDay()];
 
   // 選択された日付を管理するstateを作成
   const [selectedDate, setSelectedDate] = useState(dateString);
+  // 選択された曜日を管理するstateを作成
+  const [dayOfWeek, setDayOfWeek] = useState(dayOfWeekString);
 
   // カレンダーの日付をクリックしたときの処理
   // 普通に書いたら何故か日付がずれるので1日後の日付を取得する
@@ -25,6 +28,9 @@ function User() {
     const day = ('0' + selectedDate.getDate()).slice(-2); // 日を2桁に揃える
 
     setSelectedDate(`${year}-${month}-${day}`); // 1日後の日付をstateに保存
+
+    const newDayOfWeek = week[selectedDate.getDay()]; // 1日後の曜日を取得
+    setDayOfWeek(newDayOfWeek); // 1日後の曜日をstateに保存
   };
 
   const { userID } = useParams();
