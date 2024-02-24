@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { TextField } from '@mui/material';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { DatePicker } from '@mui/x-date-pickers';
+import { LocalizationProvider, StaticDatePicker } from '@mui/x-date-pickers';
 import { useNavigate } from 'react-router-dom';
 
 function MyCalendar() {
@@ -17,13 +16,11 @@ function MyCalendar() {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DatePicker
-        label="Calendar"
+      <StaticDatePicker
+        displayStaticWrapperAs="desktop"
         value={value}
         onChange={handleDayClick}
-        components={{
-          input: TextField,
-        }}
+        renderInput={(params) => <TextField {...params} />}
       />
     </LocalizationProvider>
   );
