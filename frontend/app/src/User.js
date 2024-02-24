@@ -32,16 +32,20 @@ function User() {
 
   return (
     <>
-      <div>
-        <h1>今日の日付: {dateString} ({dayOfWeek})</h1>
-        <h1>{user.name}</h1>
-        <img src={user.avatar_url} alt={user.name} />
-        <p>今までの合計学習時間: {studyTime.total_study_time} </p>
-        <p>今日の合計学習時間: {studyTime.today_study_time}</p>
-        <p>今週の合計学習時間: {studyTime.this_week_study_time}</p>
-        <p>先週の合計学習時間: {studyTime.last_week_study_time}</p>
+      <div className='flex justify-between'>
+        <div className='flex-1/2 flex flex-col items-center justify-center'>
+          <h1>{user.name}</h1>
+          <img src={user.avatar_url} alt={user.name} />
+          <p>今までの合計学習時間: {studyTime.total_study_time} </p>
+          <p>今日の合計学習時間: {studyTime.today_study_time}</p>
+          <p>今週の合計学習時間: {studyTime.this_week_study_time}</p>
+          <p>先週の合計学習時間: {studyTime.last_week_study_time}</p>
+          <MyCalendar studyTime={studyTime} />
+        </div>
+        <div className='flex-1 border-l-2 border-dashed border-gray-400'>
+          <h1>{dateString} ({dayOfWeek})</h1>
+        </div>
       </div>
-      <MyCalendar studyTime={studyTime} />
     </>
   );
 }
