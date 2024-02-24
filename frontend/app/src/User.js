@@ -11,6 +11,11 @@ function User() {
   const week = ["日", "月", "火", "水", "木", "金", "土"];
   const dayOfWeek = week[today.getDay()];
 
+  // カレンダーの日付をクリックしたときの処理
+  const handleDateClick = (date) => {
+    console.log(date);
+  };
+
   const { userID } = useParams();
   const [user, setUser] = useState(null);
   const [studyTime, setStudyTime] = useState(null);
@@ -40,7 +45,7 @@ function User() {
           <p>今日の合計学習時間: {studyTime.today_study_time}</p>
           <p>今週の合計学習時間: {studyTime.this_week_study_time}</p>
           <p>先週の合計学習時間: {studyTime.last_week_study_time}</p>
-          <MyCalendar studyTime={studyTime} />
+          <MyCalendar onDateClick={handleDateClick} />
         </div>
         <div className='flex-1 border-l-2 border-dashed border-gray-400'>
           <h1>{dateString} ({dayOfWeek})</h1>

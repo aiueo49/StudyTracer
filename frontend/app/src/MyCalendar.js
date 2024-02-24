@@ -4,7 +4,7 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider, StaticDatePicker } from '@mui/x-date-pickers';
 import { useNavigate } from 'react-router-dom';
 
-function MyCalendar() {
+function MyCalendar({ onDateClick }) {
   const [value, setValue] = React.useState(null);
   const navigate = useNavigate();
 
@@ -12,6 +12,7 @@ function MyCalendar() {
     setValue(newValue);
     const dateString = newValue.toISOString().split("T")[0]; // YYYY-MM-DD
     navigate(`/study_times/${dateString}`);
+    onDateClick(dateString);
   };
 
   return (
