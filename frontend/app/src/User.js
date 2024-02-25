@@ -18,8 +18,12 @@ function User() {
 
   // 選択された日付を管理するstateを作成
   const [selectedDate, setSelectedDate] = useState(dateString);
+
   // 選択された曜日を管理するstateを作成
   const [dayOfWeek, setDayOfWeek] = useState(dayOfWeekString);
+
+  // 選択された日付の学習時間を管理するstateを作成
+  const [selectedStudyTime, setSelectedStudyTime] = useState(null);
 
   // カレンダーの日付をクリックしたときの処理
   // 普通に書いたら何故か日付がずれるので1日後の日付を取得する
@@ -35,6 +39,11 @@ function User() {
 
     const newDayOfWeek = week[selectedDate.getDay()]; // 1日後の曜日を取得
     setDayOfWeek(newDayOfWeek); // 1日後の曜日をstateに保存
+
+    // 選択された日付の学習時間を取得
+    fetch(`http://localhost:3001/study_times/${userID}/${year}-${month}-${day}`)
+      .then(response => response.json())
+      .then(data => setSelectedStudyTime(data));
   };
 
   const { userID } = useParams();
@@ -70,7 +79,8 @@ function User() {
         </div>
         <div className='flex-1 border-l-2 border-dashed border-gray-400'>
           <h1>{selectedDate} ({dayOfWeek})</h1>
-          <p>学習時間: {studyTime.today_study_time}</p>
+          {/* 学習時間がnull(未来の日付)の場合、0時間0分を表示する */}
+          <p>学習時間: {selectedStudyTime ? selectedStudyTime.study_time : '0時間0分'}</p>
           <p>学習内容: </p>
           <p>感想:</p>
         </div>

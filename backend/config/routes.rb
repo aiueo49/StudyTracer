@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
   resources :users, only: [:show]
-  resources :study_times, only: [:show]
+  resources :study_times, only: [:show] do
+    get ':date', to: 'study_times#show_by_date', on: :member, as: :show_by_date
+  end
 end

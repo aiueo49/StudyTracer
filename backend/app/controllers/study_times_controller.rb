@@ -39,6 +39,12 @@ class StudyTimesController < ApplicationController
     render json: { total_study_time: total_study_time, today_study_time: today_study_time, this_week_study_time: this_week_study_time, last_week_study_time: last_week_study_time }
   end
 
+  def show_by_date
+    study_times = StudyTime.where(user_id: params[:id], start_time: params[:date].to_date.beginning_of_day..params[:date].to_date.end_of_day)
+    study_time = calculate_study_time(study_times)
+    render json: { study_time: study_time }
+  end
+
   private
 
   def calculate_study_time(study_times)
