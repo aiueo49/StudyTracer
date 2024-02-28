@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
 import TermsOfService from './TermsOfService';
+import PrivacyPolicy from './PrivacyPolicy';
 
 const Footer = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -20,7 +21,7 @@ const Footer = () => {
       <nav>
         <ul className="flex justify-center space-x-4">
           <li><button onClick={() => handleOpenModal(<TermsOfService />)} className="text-white">利用規約</button></li>
-          <li><button onClick={() => handleOpenModal('プライバシーポリシー', 'ここにプライバシーポリシーを記載します')} className="text-white">プライバシーポリシー</button></li>
+          <li><button onClick={() => handleOpenModal(<PrivacyPolicy />)} className="text-white">プライバシーポリシー</button></li>
           <li><button className="text-white">お問い合わせ</button></li>
         </ul>
       </nav>
