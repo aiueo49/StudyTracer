@@ -12,8 +12,8 @@ const ContactForm = () => {
   };
 
   return (
-    <>
-      <h1 className="text-4xl">お問い合わせ</h1>
+    <div className="p-10 rounded-lg">
+      <h1 className="text-4xl mb-6 text-center">お問い合わせ</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <label className="block">
           <span className="text-gray-700">名前:</span>
@@ -31,9 +31,9 @@ const ContactForm = () => {
             className="mt-1 block w-full h-32 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
         </label>
         <input type="submit" value="送信" 
-          className="mt-2 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded" />
+          className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" />
       </form>
-    </>
+    </div>
   );
 };
 
