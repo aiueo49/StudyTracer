@@ -5,10 +5,27 @@ const ContactForm = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // ここでフォームのデータを処理します（例：APIに送信）
-    console.log(name, email, message);
+    try {
+      const response = await fetch('http://localhost:3001/contacts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name, email, message })
+      });
+
+      if (!response.ok) {
+        throw new Error('Something went wrong');
+      }
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (

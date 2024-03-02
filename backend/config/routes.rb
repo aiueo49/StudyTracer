@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :study_times, only: [:show] do
     get ':date', to: 'study_times#show_by_date', on: :member, as: :show_by_date
   end
+  resources :contacts, only: [:create]
 end
