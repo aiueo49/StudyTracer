@@ -64,8 +64,8 @@ end
 bot.voice_state_update do |event|
   if event.channel.nil?
     user = User.find_by(name: event.user.name)
-    study_time = StudyTime.find_by(user_id: user.id, end_time: nil)
-    study_time.update(end_time: Time.now)
+    study_time = StudyTime.where(user_id: user.id, end_time: nil).last
+    study_time.update(end_time: Time.now) if study_time
   end
 end
 
