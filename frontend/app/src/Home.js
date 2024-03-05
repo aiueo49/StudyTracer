@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Home() {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,9 @@ function Home() {
         >
           使い方
         </button>
-        <button className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700">お試し</button>
+        <Link to="https://discord.gg/DwqgQtacEZ">
+          <button className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700">お試し</button>
+        </Link>
         <button className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700">使ってみる</button>
 
         {isOpen && (
