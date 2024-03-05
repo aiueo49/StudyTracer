@@ -22,13 +22,14 @@ function Home() {
       <h1 className="text-6xl">StudyTracer</h1>
       <p className="text-xl">Discordbotがあなたの学習時間を自動記録します</p>
       <div className="flex justify-center space-x-4">
-        <button className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700">使ってみる</button>
         <button
           className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700"
           onClick={showModal}
         >
-          説明を読む
+          使い方
         </button>
+        <button className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700">お試し</button>
+        <button className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700">使ってみる</button>
 
         {isOpen && (
           <div
