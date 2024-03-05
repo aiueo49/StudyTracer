@@ -22,14 +22,18 @@ function Home() {
       <h1 className="text-6xl">StudyTracer</h1>
       <p className="text-xl">Discordbotがあなたの学習時間を自動記録します</p>
       <div className="flex justify-center space-x-4">
-        <button className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700">使ってみる</button>
         <button
           className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700"
           onClick={showModal}
         >
-          説明を読む
+          使い方
         </button>
-
+        <a href="https://discord.gg/DwqgQtacEZ">
+          <button className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700">お試し</button>
+        </a>
+        <a href="https://discord.com/oauth2/authorize?client_id=1206908305608409089&permissions=927712954368&scope=bot">
+          <button className="px-4 py-2 text-lg bg-blue-500 text-white rounded hover:bg-blue-700">使ってみる</button>
+        </a>
         {isOpen && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
