@@ -43,10 +43,11 @@ end
 bot.voice_state_update do |event|
   if event.channel
     User.create(
-      user_id: event.user.id,
+      discord_id: event.user.id, # Discordでの一意のユーザーID
       name: event.user.name,
       avatar_url: event.user.avatar_url,
     )
+    puts "ユーザーが入室しました: #{User.name}"
   end
 end
 
