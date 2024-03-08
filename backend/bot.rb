@@ -39,10 +39,11 @@ bot.voice_state_update do |event|
   end
 end
 
-# ユーザーが入室した時にユーザーネームとユーザーアイコンと入室時刻(タイムスタンプ)を取得し、データベースに保存する
+# ユーザーが入室した時にユーザーIDとユーザーネームとユーザーアイコンと入室時刻(タイムスタンプ)を取得し、データベースに保存する
 bot.voice_state_update do |event|
   if event.channel
     User.create(
+      user_id: event.user.id,
       name: event.user.name,
       avatar_url: event.user.avatar_url,
     )
