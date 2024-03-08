@@ -47,7 +47,7 @@ bot.voice_state_update do |event|
       name: event.user.name,
       avatar_url: event.user.avatar_url,
     )
-    puts "ユーザーが入室しました: #{User.name}"
+    puts "テストテスト：ユーザーが入室しました: #{event.user.id}, #{event.user.name}, #{event.user.avatar_url}"
   end
 end
 
