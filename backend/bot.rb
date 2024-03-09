@@ -39,7 +39,7 @@ bot.voice_state_update do |event|
     # トークンをデータベースに保存する
     user.update(token: token)
     # トークンを含むユーザーページのURLを作成する
-    user_page_url = "http://localhost:3000/users/?token=#{token}"
+    user_page_url = "http://localhost:3000/users/#{token}"
     # メッセージを作成する
     exit_message = exit_messages.sample % {name: event.user.name}
     # メッセージを送信する
