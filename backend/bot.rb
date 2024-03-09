@@ -1,6 +1,7 @@
 require "dotenv/load"
 require "discordrb"
 require "./config/environment.rb"
+require "securerandom"
 
 # Create a bot with a token
 bot = Discordrb::Bot.new token: ENV['DISCORD_BOT_TOKEN'], client_id: ENV['DISCORD_CLIENT_ID']
@@ -33,8 +34,15 @@ bot.voice_state_update do |event|
   if event.old_channel && event.old_channel
     # ユーザーが退室したときに、ユーザーページのURLをメッセージとともに送信する
     user = User.find_by(discord_id: event.user.id)
-    user_page_url = "http://localhost:3000/users/#{user.id}"
+    # トークンを作成する
+    token = SecureRandom.hex(10)
+    # トークンをデータベースに保存する
+    user.update(token: token)
+    # トークンを含むユーザーページのURLを作成する
+    user_page_url = "http://localhost:3000/users/?token=#{token}"
+    # メッセージを作成する
     exit_message = exit_messages.sample % {name: event.user.name}
+    # メッセージを送信する
     event.user.pm("#{exit_message} あなたのページはこちら: #{user_page_url}")
   end
 end
