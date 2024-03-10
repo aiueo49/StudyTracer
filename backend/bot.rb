@@ -35,7 +35,7 @@ bot.voice_state_update do |event|
     # ユーザーが退室したときに、ユーザーページのURLをメッセージとともに送信する
     user = User.find_by(discord_id: event.user.id)
     # DiscordIDと現在時刻を引数に渡し、トークン(ハッシュ)を作成する
-    token = Digest::MD5.hexdigest("#{discord_id}#{Time.now}")
+    token = Digest::MD5.hexdigest("#{user.discord_id}#{Time.now}")
     # トークンをデータベースに保存する
     user.update(token: token)
     # トークンを含むユーザーページのURLを作成する
