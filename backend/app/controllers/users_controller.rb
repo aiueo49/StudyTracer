@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   def show
     @user = User.find_by(token: params[:token])
+    # デバッグでbinding.pryを使うために追加予定
     if @user
-      # ユーザーが見つかった場合、そのユーザーのページにリダイレクトする
+      # ユーザーが見つかった場合、そのユーザーのページをJSONとして返す
       render json: @user
       # トークンをデータベースから削除する
       @user.update(token: nil)
