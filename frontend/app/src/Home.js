@@ -18,7 +18,7 @@ function Home() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen text-center space-y-4">
+    <div className="flex flex-col items-center justify-center absolute inset-0 text-center space-y-4">
       <h1 className="text-6xl">StudyTracer</h1>
       <p className="text-xl">Discordbotがあなたの学習時間を自動記録します</p>
       <div className="flex justify-center space-x-4">
