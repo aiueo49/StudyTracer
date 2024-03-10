@@ -1,7 +1,7 @@
 require "dotenv/load"
 require "discordrb"
 require "./config/environment.rb"
-require "securerandom"
+require "digest"
 
 # Create a bot with a token
 bot = Discordrb::Bot.new token: ENV['DISCORD_BOT_TOKEN'], client_id: ENV['DISCORD_CLIENT_ID']
@@ -34,8 +34,8 @@ bot.voice_state_update do |event|
   if event.old_channel && event.old_channel
     # ユーザーが退室したときに、ユーザーページのURLをメッセージとともに送信する
     user = User.find_by(discord_id: event.user.id)
-    # トークンを作成する
-    token = SecureRandom.hex(10)
+    # DiscordIDと現在時刻を引数に渡し、トークン(ハッシュ)を作成する
+    token = Digest::MD5.hexdigest("#{discord_id}#{Time.now}")
     # トークンをデータベースに保存する
     user.update(token: token)
     # トークンを含むユーザーページのURLを作成する
