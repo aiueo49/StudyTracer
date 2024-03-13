@@ -14,6 +14,9 @@ Rails.application.configure do
   # Show full error reports.
   config.consider_all_requests_local = true
 
+    # Allow requests to studytracer-backend.fly.dev
+    config.hosts << "studytracer-backend.fly.dev"
+
   # Enable server timing
   config.server_timing = true
 
