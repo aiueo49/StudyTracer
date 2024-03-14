@@ -41,7 +41,10 @@ function User() {
     setDayOfWeek(newDayOfWeek); // 1日後の曜日をstateに保存
 
     // 選択された日付の学習時間を取得
-    fetch(`http://localhost:3001/study_times/${userID}/${year}-${month}-${day}`)
+    // ローカル環境の場合
+    // fetch(`http://localhost:3001/study_times/${userID}/${year}-${month}-${day}`)
+    // 本番環境の場合
+    fetch(`https://studytracer-backend.fly.dev/study_times/${userID}/${year}-${month}-${day}`)
       .then(response => response.json())
       .then(data => setSelectedStudyTime(data));
   };
@@ -51,12 +54,18 @@ function User() {
   const [studyTime, setStudyTime] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/users/${userID}`)
+    // ローカル環境の場合
+    // fetch(`http://localhost:3001/users/${userID}`)
+    // 本番環境の場合
+    fetch(`https://studytracer-backend.fly.dev/users/${userID}`)
       .then(response => response.json())
       .then(data => setUser(data));
 
     // 学習時間を取得
-    fetch(`http://localhost:3001/study_times/${userID}`)
+    // ローカル環境の場合
+    // fetch(`http://localhost:3001/study_times/${userID}`)
+    // 本番環境の場合
+    fetch(`https://studytracer-backend.fly.dev/study_times/${userID}`)
       .then(response => response.json())
       .then(data => setStudyTime(data));
   }, [userID]);

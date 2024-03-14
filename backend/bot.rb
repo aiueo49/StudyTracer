@@ -39,7 +39,10 @@ bot.voice_state_update do |event|
     # トークンをデータベースに保存する
     user.update(token: token)
     # トークンを含むユーザーページのURLを作成する
-    user_page_url = "http://localhost:3000/users/#{token}"
+    # ローカル環境の場合
+    # user_page_url = "http://localhost:3000/users/#{token}"
+    # 本番環境の場合
+    user_page_url = "https://studytracer.vercel.app/users/#{token}"
     # メッセージを作成する
     exit_message = exit_messages.sample % {name: event.user.name}
     # メッセージを送信する
