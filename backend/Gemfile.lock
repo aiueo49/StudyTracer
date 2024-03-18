@@ -86,7 +86,10 @@ GEM
     dockerfile-rails (1.6.6)
       rails (>= 3.0.0)
     domain_name (0.6.20240107)
-    dotenv (3.0.0)
+    dotenv (3.1.0)
+    dotenv-rails (3.1.0)
+      dotenv (= 3.1.0)
+      railties (>= 6.1)
     erubi (1.12.0)
     event_emitter (0.2.6)
     ffi (1.16.3)
@@ -185,6 +188,9 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    sqlite3 (1.7.3-aarch64-linux)
+    sqlite3 (1.7.3-arm64-darwin)
+    sqlite3 (1.7.3-x86_64-linux)
     stringio (3.1.0)
     thor (1.3.0)
     timeout (0.4.1)
@@ -210,11 +216,12 @@ DEPENDENCIES
   debug
   discordrb
   dockerfile-rails (>= 1.6)
-  dotenv
-  pg (~> 1.1)
+  dotenv-rails
+  pg (~> 1.4)
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.8)
+  sqlite3 (~> 1.4)
   tzinfo-data
 
 RUBY VERSION
