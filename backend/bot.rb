@@ -1,4 +1,4 @@
-# require "dotenv/load"
+require "dotenv/load"
 require "discordrb"
 require "./config/environment.rb"
 require "digest"
