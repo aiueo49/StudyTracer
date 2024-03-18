@@ -7,7 +7,7 @@ ruby "3.3.0"
 gem "discordrb"
 
 # Use dotenv to load environment variables from .env into ENV in development
-gem "dotenv"
+gem "dotenv-rails", groups: %i[development test]
 
 gem 'concurrent-ruby', '1.1.9'
 
