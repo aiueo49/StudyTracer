@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  match "/", to: "users#show"
+  head "/", to: "users#show"
   # resources :users, only: [:show]
   # トークンを含むユーザーページのURLを作成する
   get 'users/:token', to: 'users#show', as: 'user'
