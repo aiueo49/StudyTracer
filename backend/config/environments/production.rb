@@ -18,6 +18,7 @@ Rails.application.configure do
   # 復活させる
   # Allow requests to studytracer-backend.fly.dev
   config.hosts << "studytracer-backend.fly.dev"
+  config.hosts << "localhost"
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
