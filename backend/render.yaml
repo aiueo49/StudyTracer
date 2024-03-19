@@ -1,6 +1,6 @@
 databases:
   - name: StudyTracer-db
-    databaseName: studytracer_db
+    databaseName: studytracer_db_ol81
     user: StudyTracer
     region: singapore
 
