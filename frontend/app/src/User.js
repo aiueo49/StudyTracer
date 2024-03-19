@@ -44,7 +44,7 @@ function User() {
     // ローカル環境の場合
     // fetch(`http://localhost:3001/study_times/${userID}/${year}-${month}-${day}`)
     // 本番環境の場合
-    fetch(`https://studytracer-backend.fly.dev/study_times/${userID}/${year}-${month}-${day}`)
+    fetch(`https://studytracer.onrender.com/study_times/${userID}/${year}-${month}-${day}`)
       .then(response => response.json())
       .then(data => setSelectedStudyTime(data));
   };
@@ -57,7 +57,7 @@ function User() {
     // ローカル環境の場合
     // fetch(`http://localhost:3001/users/${userID}`)
     // 本番環境の場合
-    fetch(`https://studytracer-backend.fly.dev/users/${userID}`)
+    fetch(`https://studytracer.onrender.com/users/${userID}`)
       .then(response => response.json())
       .then(data => setUser(data));
 
@@ -65,7 +65,7 @@ function User() {
     // ローカル環境の場合
     // fetch(`http://localhost:3001/study_times/${userID}`)
     // 本番環境の場合
-    fetch(`https://studytracer-backend.fly.dev/study_times/${userID}`)
+    fetch(`https://studytracer.onrender.com/study_times/${userID}`)
       .then(response => response.json())
       .then(data => setStudyTime(data));
   }, [userID]);
